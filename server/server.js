@@ -23,7 +23,7 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/auth", (req, res) => res.json({ message: "Auth route ready" }));
 app.use("/api/feed", (req, res) => res.json({ message: "Feed route ready" }));
-app.use("/api/ai", (req, res) => res.json({ message: "AI route ready" }));
+app.use("/api/ai", require("./routes/aiRoutes")); // ✅ AI Route Added
 
 app.set("io", io);
 io.on("connection", (socket) => console.log("📡 Socket Connected:", socket.id));
