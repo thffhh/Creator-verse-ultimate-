@@ -1,0 +1,15 @@
+name: Auto Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Frontend Ready
+        if: contains(github.event.head_commit.message, 'client/')
+        run: echo "✅ Frontend updated. Vercel will auto-deploy."
+      - name: Backend Ready
+        if: contains(github.event.head_commit.message, 'server/')
+        run: echo "✅ Backend updated. Render will auto-deploy."
