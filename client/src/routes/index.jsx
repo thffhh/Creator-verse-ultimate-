@@ -6,6 +6,7 @@ import Dashboard from "../pages/admin/Dashboard";
 import AIControl from "../pages/admin/AIControl";
 import Feed from "../pages/dashboard/Feed";
 import TeacherApply from "../pages/teacher/Apply";
+import FilesManager from "../pages/admin/Files";
 
 export default createBrowserRouter([
   { path: "/login", element: <Login /> },
@@ -13,5 +14,6 @@ export default createBrowserRouter([
   { path: "/apply-teacher", element: <ProtectedRoute><TeacherApply /></ProtectedRoute> },
   { path: "/admin", element: <AdminRoute><Dashboard /></AdminRoute> },
   { path: "/admin/ai", element: <AdminRoute><AIControl /></AdminRoute> },
+  { path: "/admin/files", element: <AdminRoute><FilesManager /></AdminRoute> },
   { path: "*", element: <Navigate to="/dashboard" replace /> }
 ]);
